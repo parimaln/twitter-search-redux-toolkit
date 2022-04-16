@@ -2,9 +2,8 @@ import * as React from 'react';
 import { Flex, Stack, RadioGroup, Radio, Text} from '@chakra-ui/react';
 import {NumberOfResultsType, setNumberOfResults} from "./numberOfResultsSlice";
 import {useAppDispatch, useAppSelector} from "../../app/hooks"
-import { useDispatch, useSelector } from 'react-redux';
 export const NumberOfResults = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const numberOfResults = useAppSelector(state => state.numberOfResults);
     const onChange = (val: NumberOfResultsType) => {
         dispatch(setNumberOfResults(val));

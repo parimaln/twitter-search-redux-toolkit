@@ -7,7 +7,7 @@ const numberOfResultsSlice = createSlice({
     initialState,
     reducers: {
         setNumberOfResults(state, action: PayloadAction<NumberOfResultsType>) {
-            state = action.payload;
+            return action.payload;
         }
     }
 })
