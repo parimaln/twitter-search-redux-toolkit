@@ -5,10 +5,9 @@ import { NumberOfResults } from '../numberOfResults/NumberOfResults';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
 import { fetchTweets, TweetDataType } from './finderSlice';
-import TweetEmbed from 'react-tweet-embed';
+import { TwitterTweetEmbed } from 'react-twitter-embed';
 export function Finder() {
   const [searchValue, setSearchValue] = React.useState('');
-  const [tweetData, setTweetData] = React.useState<TweetDataType[]>([]);
   const dispatch = useAppDispatch();
   const {tweets, isLoading} = useAppSelector(state => state.finder);
   const numberOfResults = useAppSelector(state => state.numberOfResults);
@@ -49,7 +48,7 @@ export function Finder() {
       <Wrap mt={5}>
         {tweets.map(tweet => (
           <WrapItem key={tweet.id}>
-            <TweetEmbed tweetId={tweet.id} />
+            <TwitterTweetEmbed tweetId={tweet.id} />
           </WrapItem>
         ))}
       </Wrap>
